@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Allcloud</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<% if user_signed_in?%>
+	<div class="header">
+	</div>
+	<div class="container main">
+		<%= yield %>
+	</div>
+	<% else %>
+	<div class="hundred">
+	<div class="container splash">
+	<div class="splash hero-unit">
+			
+				<%= image_tag "logo-trans.png", id: "logo"%>
+			<div class="forms">
+				<%= yield %>
+			</div>
+		</div>	
+	</div>
+	<% end %>
+
+</body>
+</html>
