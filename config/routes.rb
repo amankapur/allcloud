@@ -1,4 +1,6 @@
 Allcloud::Application.routes.draw do
+  get "authorize/index"
+
   get "user/index"
 
   get "user/edit"
@@ -13,6 +15,10 @@ Allcloud::Application.routes.draw do
 
   devise_for :users
   root to: 'documents#index'
+
+  match 'db/authorize', :controller => 'dropbox', :action => 'authorize'
+  match 'db/upload', :controller => 'dropbox', :action => 'upload'
+  match 'authorize', :controller => 'authorize', :action => 'index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
